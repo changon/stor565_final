@@ -1,0 +1,24 @@
+---
+title: "plot565"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+x=c(0.001, 0.01, 0.1, 1, 10, 100, 1000)
+#y=c(0.863965350088067, 0.863965350088067, 0.8639838566103482, 0.8639283267630553, 0.863410031054239, 0.8632619548882744, 0.8632619548882744) # for pred reviews
+y=c(0.6297502925967751, 0.6297502874573433, 0.6294911327513637, 0.6293245277902383, 0.6293245277902383, 0.6293245277902383, 0.6293245277902383) # pred status
+plot(1-y, ylab="Classification Error", xlab="Lambda", main="Cross Validation Results for Ridge Logistic Regression",xaxt="n",cex.lab=1,type='o')
+axis(1, at=1:7, labels=x,las=2)
+```
+
+```{r}
+x=c('sqrt(p)','p/2')
+y=c(0.86394684, 0.86385428) # for pred reviews
+y=c(0.62971327, 0.62912093) # for pred status
+plot(1-y, ylab="Classification Error", xlab="max_depth", main="Cross Validation Results for Random Forest",xaxt="n",cex.lab=1)
+axis(1, at=1:2, labels=x,las=2)
+
+#The number of features to consider when looking for the best split:
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
